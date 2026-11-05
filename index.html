@@ -8,10 +8,10 @@
 
   <meta name="description" content="Planificadores PDF para imprimir en español: docente, presupuesto mensual y menú semanal con lista de compras. Incluyen formato A4 y Carta. Descarga digital.">
   <link rel="canonical" href="https://masquepancomido.com/">
-  <meta name="theme-color" content="#F8F6F1">
+  <meta name="theme-color" content="#EFE5D6">
 
   <!-- Ícono de la pestaña -->
-  <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
   <!-- Al compartir el enlace (WhatsApp, Facebook, Pinterest, etc.) -->
   <meta property="og:type" content="website">
@@ -20,16 +20,14 @@
   <meta property="og:title" content="Planificadores PDF imprimibles en español | TodoPDF">
   <meta property="og:description" content="Planificador docente, presupuesto mensual y menú semanal con compras. PDF en A4 y Carta.">
   <meta property="og:url" content="https://masquepancomido.com/">
-  <meta property="og:image" content="https://masquepancomido.com/img/og-todopdf.jpg">
+  <meta property="og:image" content="https://masquepancomido.com/og-todopdf.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="TodoPDF: planificadores PDF imprimibles en español">
   <meta name="twitter:card" content="summary_large_image">
 
-  <!-- PINTEREST: cuando Pinterest te dé la etiqueta de verificación, quitá los signos de comentario
-       de la línea siguiente y reemplazá PEGAR_CODIGO por tu código.
-  <meta name="p:domain_verify" content="PEGAR_CODIGO">
-  -->
+  <!-- Verificación de Pinterest -->
+  <meta name="p:domain_verify" content="87c9534ba8a3339d4d932e723c67f02a"/>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -50,7 +48,7 @@
         "@type": "Product",
         "name": "Planificador Docente",
         "description": "Planificador docente en PDF imprimible de 11 páginas: horario, planificación semanal, asistencia, calificaciones, seguimiento de alumnos y calendario. Incluye A4 y Carta.",
-        "image": "https://masquepancomido.com/img/planificador-docente.jpg",
+        "image": "https://masquepancomido.com/planificador-docente.jpg",
         "brand": { "@type": "Brand", "name": "TodoPDF" },
         "offers": {
           "@type": "Offer",
@@ -64,7 +62,7 @@
         "@type": "Product",
         "name": "Planner de Presupuesto Mensual",
         "description": "Planner de presupuesto mensual en PDF imprimible de 9 páginas: ingresos, gastos fijos y variables, regla 50/30/20, ahorro y deudas. Incluye A4 y Carta.",
-        "image": "https://masquepancomido.com/img/planner-presupuesto.jpg",
+        "image": "https://masquepancomido.com/planner-presupuesto.jpg",
         "brand": { "@type": "Brand", "name": "TodoPDF" },
         "offers": {
           "@type": "Offer",
@@ -78,7 +76,7 @@
         "@type": "Product",
         "name": "Planificador de Menú Semanal y Compras",
         "description": "Planificador de menú semanal y compras en PDF imprimible de 10 páginas: menú semanal y mensual, lista de compras, despensa, cocina por lotes y control de gasto. Incluye A4 y Carta.",
-        "image": "https://masquepancomido.com/img/planificador-menu-compras.jpg",
+        "image": "https://masquepancomido.com/planificador-menu-compras.jpg",
         "brand": { "@type": "Brand", "name": "TodoPDF" },
         "offers": {
           "@type": "Offer",
@@ -95,13 +93,16 @@
   <style>
     :root {
       --beige: #E9DCCB;
+      --beige-deep: #DCCBB4;
       --sage: #A9B5A0;
       --terracotta: #C58F78;
-      --cream: #F8F6F1;
+      --terra-deep: #9E5F48;
+      --cream: #FBF8F2;
+      --page: #EFE5D6;
       --dark: #393A35;
       --white: #FFFFFF;
-      --muted: #66655E;
-      --border: #E8E3DA;
+      --muted: #55544D;
+      --border: #D9CBB6;
     }
 
     * {
@@ -116,7 +117,7 @@
 
     body {
       font-family: 'Instrument Sans', sans-serif;
-      background: var(--cream);
+      background: var(--page);
       color: var(--dark);
       line-height: 1.6;
     }
@@ -134,7 +135,7 @@
     /* NAVEGACIÓN */
 
     header {
-      background: rgba(248,246,241,0.96);
+      background: rgba(239,229,214,0.95);
       border-bottom: 1px solid var(--border);
       position: sticky;
       top: 0;
@@ -162,10 +163,11 @@
       align-items: center;
       gap: 28px;
       font-size: 14px;
+      font-weight: 500;
     }
 
     .nav-links a:hover {
-      color: #A16D59;
+      color: var(--terra-deep);
     }
 
     /* BOTONES */
@@ -200,15 +202,18 @@
 
     .hero {
       padding: 95px 0 85px;
-      background: linear-gradient(135deg, #F8F6F1 55%, #E9DCCB 100%);
+      background:
+        radial-gradient(circle at 88% 15%, rgba(197,143,120,.38), transparent 42%),
+        radial-gradient(circle at 8% 95%, rgba(169,181,160,.55), transparent 48%),
+        linear-gradient(135deg, #E9DCCB 0%, #DCCBB4 100%);
       text-align: center;
     }
 
     .eyebrow {
       display: inline-block;
       padding: 7px 15px;
-      background: #E8EDE4;
-      color: #5D6A57;
+      background: rgba(169,181,160,.5);
+      color: #3F4B39;
       border-radius: 30px;
       font-size: 12px;
       font-weight: 700;
@@ -268,18 +273,19 @@
     }
 
     .product {
-      background: var(--white);
+      background: var(--cream);
       border: 1px solid var(--border);
       border-radius: 20px;
       overflow: hidden;
       display: flex;
       flex-direction: column;
+      box-shadow: 0 6px 18px rgba(57,58,53,.08);
       transition: .2s;
     }
 
     .product:hover {
       transform: translateY(-5px);
-      box-shadow: 0 12px 30px rgba(57,58,53,.07);
+      box-shadow: 0 16px 34px rgba(57,58,53,.16);
     }
 
     .product-art {
@@ -303,7 +309,7 @@
     }
 
     .product-tag {
-      color: #7A6858;
+      color: #7A5A48;
       font-size: 11px;
       font-weight: 700;
       text-transform: uppercase;
@@ -326,7 +332,7 @@
       list-style: none;
       margin-bottom: 22px;
       font-size: 13px;
-      color: #55564F;
+      color: #4A4B44;
     }
 
     .features li {
@@ -335,7 +341,7 @@
 
     .features li::before {
       content: "✓";
-      color: #829078;
+      color: #6F7F65;
       font-weight: 700;
       margin-right: 9px;
     }
@@ -355,6 +361,11 @@
 
     .product .btn {
       width: 100%;
+      background: var(--terra-deep);
+    }
+
+    .product .btn:hover {
+      background: #84503C;
     }
 
     .formats {
@@ -367,7 +378,11 @@
     /* BENEFICIOS */
 
     .benefits {
-      background: #EAEDE6;
+      background: #BFCBB5;
+    }
+
+    .benefits .section-heading p {
+      color: #3C4837;
     }
 
     .benefit-grid {
@@ -378,12 +393,17 @@
     }
 
     .benefit {
-      padding: 22px;
+      padding: 28px 22px;
+      background: var(--cream);
+      border: 1px solid #A9B8A0;
+      border-radius: 18px;
+      box-shadow: 0 6px 16px rgba(57,58,53,.08);
     }
 
     .benefit-icon {
       font-size: 30px;
       margin-bottom: 15px;
+      color: var(--terra-deep);
     }
 
     .benefit h3 {
@@ -393,10 +413,14 @@
 
     .benefit p {
       font-size: 14px;
-      color: #5E6158;
+      color: #4F5249;
     }
 
     /* COMO FUNCIONA */
+
+    #como-funciona {
+      background: #F6EEE2;
+    }
 
     .steps {
       display: grid;
@@ -406,11 +430,12 @@
     }
 
     .step-number {
-      width: 42px;
-      height: 42px;
+      width: 44px;
+      height: 44px;
       margin: 0 auto 15px;
       border-radius: 50%;
-      background: var(--beige);
+      background: var(--terra-deep);
+      color: white;
       display: grid;
       place-items: center;
       font-weight: 700;
@@ -429,7 +454,7 @@
     /* PREGUNTAS */
 
     .faq {
-      background: #F0EAE1;
+      background: #E3D2BC;
     }
 
     .faq-list {
@@ -438,11 +463,12 @@
     }
 
     details {
-      background: white;
-      border: 1px solid var(--border);
+      background: var(--cream);
+      border: 1px solid #CDBBA3;
       border-radius: 12px;
       padding: 18px 21px;
       margin-bottom: 12px;
+      box-shadow: 0 3px 10px rgba(57,58,53,.06);
     }
 
     summary {
@@ -460,11 +486,28 @@
 
     .contact {
       text-align: center;
+      background:
+        radial-gradient(circle at 90% 10%, rgba(255,255,255,.30), transparent 40%),
+        #DDB7A5;
+    }
+
+    .contact .eyebrow {
+      background: rgba(255,255,255,.45);
+      color: #5A3A2D;
     }
 
     .contact p {
-      color: var(--muted);
+      color: #4A3A32;
       margin: 15px 0 22px;
+    }
+
+    .contact .btn-light {
+      background: var(--dark);
+      color: white;
+    }
+
+    .contact .btn-light:hover {
+      background: #55564E;
     }
 
     /* FOOTER */
@@ -473,6 +516,7 @@
       background: var(--dark);
       color: white;
       padding: 42px 0;
+      border-top: 5px solid var(--terracotta);
     }
 
     footer .wrap {
@@ -628,7 +672,7 @@
 
             <div class="product-art">
               <img
-                src="img/planificador-docente.jpg"
+                src="planificador-docente.jpg"
                 width="800" height="450"
                 loading="lazy" decoding="async"
                 alt="Portada del Planificador Docente con páginas de planificación semanal, asistencia y calificaciones">
@@ -677,7 +721,7 @@
 
             <div class="product-art">
               <img
-                src="img/planner-presupuesto.jpg"
+                src="planner-presupuesto.jpg"
                 width="800" height="450"
                 loading="lazy" decoding="async"
                 alt="Portada del Planner de Presupuesto Mensual con resumen del mes, gastos fijos y variables">
@@ -725,7 +769,7 @@
 
             <div class="product-art">
               <img
-                src="img/planificador-menu-compras.jpg"
+                src="planificador-menu-compras.jpg"
                 width="800" height="450"
                 loading="lazy" decoding="async"
                 alt="Portada del Planificador de Menú Semanal y Compras con menú, lista de compras y despensa">
