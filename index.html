@@ -6,7 +6,7 @@
 
   <title>Planificadores PDF imprimibles en español | TodoPDF</title>
 
-  <meta name="description" content="Planificadores PDF para imprimir en español: docente, presupuesto mensual y menú semanal con lista de compras. Incluyen formato A4 y Carta. Descarga digital.">
+  <meta name="description" content="Planificadores PDF para imprimir en español: docente, presupuesto mensual, menú semanal y planificador mensual 2027. Incluyen formato A4 y Carta. Descarga digital.">
   <link rel="canonical" href="https://masquepancomido.com/">
   <meta name="theme-color" content="#EFE5D6">
 
@@ -18,7 +18,7 @@
   <meta property="og:site_name" content="TodoPDF">
   <meta property="og:locale" content="es_LA">
   <meta property="og:title" content="Planificadores PDF imprimibles en español | TodoPDF">
-  <meta property="og:description" content="Planificador docente, presupuesto mensual y menú semanal con compras. PDF en A4 y Carta.">
+  <meta property="og:description" content="Planificador docente, presupuesto mensual, menú semanal y planificador mensual 2027. PDF en A4 y Carta.">
   <meta property="og:url" content="https://masquepancomido.com/">
   <meta property="og:image" content="https://masquepancomido.com/og-todopdf.jpg">
   <meta property="og:image:width" content="1200">
@@ -84,6 +84,20 @@
           "priceCurrency": "USD",
           "availability": "https://schema.org/InStock",
           "url": "https://www.creem.io/payment/prod_7ScCJTfu1SWO606vknvpoM"
+        }
+      },
+      {
+        "@type": "Product",
+        "name": "Planificador Mensual 2027",
+        "description": "Planificador mensual 2027 en PDF imprimible de 13 páginas: portada y planificación de enero a diciembre, con objetivos, prioridades, fechas importantes, seguimiento de hasta cinco hábitos y espacio para notas. Incluye A4 y Carta.",
+        "image": "https://masquepancomido.com/planificador-mensual-2027.jpg",
+        "brand": { "@type": "Brand", "name": "TodoPDF" },
+        "offers": {
+          "@type": "Offer",
+          "price": "4.99",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock",
+          "url": "https://www.creem.io/payment/prod_3o6c5edylvPPH3y5g75JJa"
         }
       }
     ]
@@ -286,6 +300,11 @@
     .product:hover {
       transform: translateY(-5px);
       box-shadow: 0 16px 34px rgba(57,58,53,.16);
+    }
+
+    /* Cuarto producto centrado en la última fila */
+    .product:nth-child(4) {
+      grid-column: 2;
     }
 
     .product-art {
@@ -559,6 +578,10 @@
         grid-template-columns: 1fr 1fr;
       }
 
+      .product:nth-child(4) {
+        grid-column: auto;
+      }
+
       /* El tercer producto ocupa el centro en vez de quedar suelto */
       .product:last-child:nth-child(odd) {
         grid-column: 1 / -1;
@@ -573,6 +596,10 @@
     }
 
     @media (max-width: 600px) {
+      .product:nth-child(4) {
+        grid-column: auto;
+      }
+
       nav {
         flex-direction: column;
         padding: 15px 0;
@@ -799,6 +826,54 @@
               <a
                 class="btn"
                 href="https://www.creem.io/payment/prod_7ScCJTfu1SWO606vknvpoM"
+                target="_blank"
+                rel="noopener noreferrer">
+                Comprar ahora
+              </a>
+
+              <p class="formats">
+                Incluye el PDF en formato A4 y Carta.
+              </p>
+
+            </div>
+          </article>
+
+          <!-- PLANIFICADOR MENSUAL 2027 -->
+
+          <article class="product">
+
+            <div class="product-art">
+              <img
+                src="planificador-mensual-2027.jpg"
+                width="800" height="450"
+                loading="lazy" decoding="async"
+                alt="Portada del Planificador Mensual 2027 con calendario, objetivos y seguimiento de hábitos">
+            </div>
+
+            <div class="product-content">
+
+              <span class="product-tag">Organización y planificación</span>
+
+              <h3>Planificador Mensual 2027</h3>
+
+              <p class="product-description">
+                Organizá cada mes de 2027, definí tus objetivos,
+                ordená tus prioridades y llevá un seguimiento
+                de tus hábitos durante todo el año.
+              </p>
+
+              <ul class="features">
+                <li>13 páginas: portada y enero a diciembre.</li>
+                <li>Calendario y fechas importantes de cada mes.</li>
+                <li>Espacios para objetivos, prioridades y notas.</li>
+                <li>Seguimiento de hasta 5 hábitos por mes.</li>
+              </ul>
+
+              <div class="price">USD 4,99 <small>/ pago único</small></div>
+
+              <a
+                class="btn"
+                href="https://www.creem.io/payment/prod_3o6c5edylvPPH3y5g75JJa"
                 target="_blank"
                 rel="noopener noreferrer">
                 Comprar ahora
