@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TODO PDF | Recursos digitales para organizar, crear y disfrutar</title>
-  <meta name="description" content="Recetas, agendas y planners digitales en PDF. Recursos prácticos para organizar, crear y disfrutar. Descarga digital a través de Hotmart.">
+  <meta name="description" content="Ebooks, plantillas y recursos digitales en PDF para organizar, crear y disfrutar. Descarga digital a través de Hotmart.">
   <link rel="canonical" href="https://masquepancomido.com/">
   <meta name="theme-color" content="#f4eee4">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -12,7 +12,7 @@
   <meta property="og:site_name" content="TODO PDF">
   <meta property="og:locale" content="es_AR">
   <meta property="og:title" content="TODO PDF | Recursos digitales para organizar, crear y disfrutar">
-  <meta property="og:description" content="Recetas, agendas y planners digitales en un solo lugar.">
+  <meta property="og:description" content="Ebooks, plantillas y recursos digitales en un solo lugar.">
   <meta property="og:url" content="https://masquepancomido.com/">
   <meta property="og:image" content="https://masquepancomido.com/og-todopdf.jpg">
   <meta name="p:domain_verify" content="87c9534ba8a3339d4d932e723c67f02a">
@@ -22,9 +22,12 @@
   <style>
     :root{--page:#f4eee4;--card:#fff;--ink:#24231f;--muted:#77736b;--line:#e4dbce;--accent:#e8aa30;--accent-dark:#a76c19;--green:#47744c;--bonus-bg:#e6efe5;--bonus-ink:#294c30}
     *{box-sizing:border-box;margin:0}
+    [hidden]{display:none!important}
     html{scroll-behavior:smooth}
     body{font-family:'Instrument Sans',Arial,sans-serif;background:var(--page);color:var(--ink);line-height:1.5}
     a{color:inherit;text-decoration:none}
+    section[id]{scroll-margin-top:72px}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
     .wrap{width:min(1080px,92%);margin:0 auto}
     header{background:rgba(255,255,255,.78);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10;backdrop-filter:blur(10px)}
     nav{min-height:66px;display:flex;align-items:center;justify-content:space-between;gap:18px}
@@ -34,14 +37,20 @@
     .hero h1{font-size:clamp(28px,4vw,42px);line-height:1.15;letter-spacing:-1px;font-weight:700}
     .hero p{margin:8px auto 0;color:var(--muted);font-size:16px}
     .catalog{padding:8px 0 54px}
+    .filters{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:0 0 22px}
+    .filter{font:inherit;font-size:14px;font-weight:600;padding:9px 16px;border-radius:25px;border:1px solid var(--line);background:#fff;color:#514e48;cursor:pointer;transition:background .18s,border-color .18s,color .18s}
+    .filter:hover{border-color:var(--accent)}
+    .filter[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+    .filter:focus-visible,.buy:focus-visible,.product-image:focus-visible{outline:2px solid var(--green);outline-offset:2px}
+    .filter .tag{margin-left:6px;padding:2px 7px;border-radius:12px;background:#fff0cf;color:#805719;font-size:11px;font-weight:700}
     .products{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+    .products[data-count="1"]{grid-template-columns:minmax(0,1fr);max-width:260px;margin-inline:auto}
+    .products[data-count="2"]{grid-template-columns:repeat(2,minmax(0,1fr));max-width:540px;margin-inline:auto}
     .product{background:var(--card);border:1px solid var(--line);border-radius:13px;overflow:hidden;display:flex;flex-direction:column;transition:transform .18s,box-shadow .18s}
     .product:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(55,45,30,.09)}
     .product-image{display:block;aspect-ratio:1/1;background:#e6dfd2;overflow:hidden}
     .product-image img{width:100%;height:100%;object-fit:cover;display:block}
     .product-info{padding:13px 14px 15px;display:flex;flex-direction:column;gap:6px;flex:1}
-    .product h2{font-size:17px;line-height:1.25;font-weight:600}
-    .category{font-size:12px;color:var(--muted)}
     .price-row{display:flex;align-items:baseline;gap:8px;margin-top:3px}
     .price{font-size:21px;font-weight:700;letter-spacing:-.3px}
     .old-price{font-size:13px;color:#888;text-decoration:line-through}
@@ -51,6 +60,9 @@
     .bonus-title{font-size:13px;font-weight:600;margin-top:2px}
     .buy{display:flex;align-items:center;justify-content:center;margin-top:auto;padding:10px 14px;margin-top:10px;border-radius:25px;background:var(--accent);color:#29241b;font-size:13px;font-weight:700;transition:background .18s}
     .buy:hover{background:#f0bd55}
+    .soon{max-width:520px;margin:6px auto 0;padding:30px 22px;background:#fffaf3;border:1px dashed #d8cbb8;border-radius:14px;text-align:center}
+    .soon h2{font-size:22px;line-height:1.25}
+    .soon p{color:var(--muted);font-size:14px;margin:8px 0 16px}
     .trust{margin:0 auto 42px;padding:18px 20px;background:#e7e5d5;border-radius:14px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;text-align:center;color:#4b5144;font-size:13px}
     .trust strong{display:block;font-size:14px;margin-bottom:2px}
     .simple-section{padding:36px 0}
@@ -61,8 +73,9 @@
     .faq{padding:30px 0 48px}.faq-list{max-width:720px;margin:auto}.faq-list details{background:#fff;border:1px solid var(--line);border-radius:10px;padding:14px 17px;margin:9px 0}.faq-list summary{font-weight:600;cursor:pointer}.faq-list details p{font-size:14px;color:var(--muted);margin-top:8px}
     .contact{text-align:center;padding:35px 20px 45px}.contact h2{font-size:25px}.contact p{color:var(--muted);margin:7px 0 15px}.contact-link{display:inline-block;background:var(--ink);color:#fff;padding:10px 17px;border-radius:25px;font-size:14px}
     footer{background:#30271d;color:#f8f1e8;padding:25px 0}footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:20px}footer p{color:#d4c9bb;font-size:13px;margin-top:4px}.footer-links{display:flex;gap:18px;flex-wrap:wrap;font-size:13px;color:#e6d9c9}
-    @media(min-width:850px){.products{grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}.product-info{padding:13px}.product h2{font-size:16px}}
-    @media(max-width:580px){nav{min-height:58px}.logo{font-size:22px}.nav-links{gap:12px;font-size:12px}.hero{padding:25px 0 18px}.hero p{font-size:14px}.products{gap:10px}.product-info{padding:10px}.product h2{font-size:14px}.category{font-size:11px}.price{font-size:19px}.buy{padding:8px 9px;font-size:12px}.bonus-box{padding:8px}.bonus-title{font-size:12px}.trust{padding:12px 8px;gap:8px;font-size:11px}.trust strong{font-size:12px}.benefits{grid-template-columns:1fr}.simple-section{padding:25px 0}.section-title h2{font-size:22px}footer .wrap{flex-direction:column;align-items:flex-start}}
+    @media(min-width:850px){.products{grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}.product-info{padding:13px}}
+    @media(max-width:580px){nav{min-height:58px}.logo{font-size:22px}.nav-links{gap:12px;font-size:12px}.hero{padding:25px 0 18px}.hero p{font-size:14px}.filter{font-size:13px;padding:8px 13px}.products{gap:10px}.product-info{padding:10px}.price{font-size:19px}.buy{padding:8px 9px;font-size:12px}.bonus-box{padding:8px}.bonus-title{font-size:12px}.trust{padding:12px 8px;gap:8px;font-size:11px}.trust strong{font-size:12px}.benefits{grid-template-columns:1fr}.simple-section{padding:25px 0}.section-title h2{font-size:22px}footer .wrap{flex-direction:column;align-items:flex-start}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.product,.buy,.filter{transition:none}.product:hover{transform:none}}
   </style>
 </head>
 <body>
@@ -78,35 +91,96 @@
       <p>Recursos digitales para organizar, crear y disfrutar.</p>
     </div></section>
     <section class="catalog" id="productos"><div class="wrap">
-      <div class="products">
-        <article class="product">
-          <a class="product-image" href="https://pay.hotmart.com/R108539531F" target="_blank" rel="noopener noreferrer" aria-label="Comprar 50 Recetas con Papa en Hotmart"><img src="50-recetas-con-papa.jpg" alt="Portada de 50 Recetas con Papa" loading="lazy"></a>
-          <div class="product-info"><h2>50 Recetas con Papa</h2><span class="category">Cocina y Recetas</span><span class="sale-label">PRECIO PROMOCIONAL</span><div class="price-row"><span class="old-price">$15.000</span><span class="price">$11.999</span></div><div class="bonus-box"><div class="bonus-label">🎁 BONUS EXCLUSIVO</div><div class="bonus-title">¿Qué hacer con la cáscara de papa?</div></div><a class="buy" href="https://pay.hotmart.com/R108539531F" target="_blank" rel="noopener noreferrer">Comprar en Hotmart</a></div>
+      <div class="filters" role="group" aria-label="Filtrar productos">
+        <button type="button" class="filter" data-filter="todos" aria-pressed="true">Todos</button>
+        <button type="button" class="filter" data-filter="ebooks" aria-pressed="false">Ebooks</button>
+        <button type="button" class="filter" data-filter="plantillas" aria-pressed="false">Plantillas</button>
+        <button type="button" class="filter" data-filter="colorear" aria-pressed="false">Libros para colorear<span class="tag">Pronto</span></button>
+      </div>
+      <div class="products" id="lista-productos" data-count="4">
+        <article class="product" data-type="ebooks">
+          <a class="product-image" href="https://pay.hotmart.com/R108539531F" target="_blank" rel="noopener noreferrer" aria-label="Comprar 50 Recetas con Papa en Hotmart"><img src="50-recetas-con-papa.jpg" alt="Portada de 50 Recetas con Papa" width="1200" height="1200" decoding="async"></a>
+          <div class="product-info"><h2 class="sr-only">50 Recetas con Papa</h2><span class="sale-label">PRECIO PROMOCIONAL</span><div class="price-row"><span class="old-price">$15.000</span><span class="price">$11.999</span></div><div class="bonus-box"><div class="bonus-label">🎁 BONUS EXCLUSIVO</div><div class="bonus-title">¿Qué hacer con la cáscara de papa?</div></div><a class="buy" href="https://pay.hotmart.com/R108539531F" target="_blank" rel="noopener noreferrer">Comprar en Hotmart</a></div>
         </article>
-        <article class="product">
-          <a class="product-image" href="https://pay.hotmart.com/V108540669E" target="_blank" rel="noopener noreferrer" aria-label="Comprar Agenda y Planificador 2027 en Hotmart"><img src="Agenda y Planificador 2027.png" alt="Portada de Agenda y Planificador 2027" loading="lazy"></a>
-          <div class="product-info"><h2>Agenda y Planificador 2027</h2><span class="category">Organización</span><div class="price-row"><span class="price">$5.000</span></div><div class="bonus-box"><div class="bonus-label">🎁 BONUS EXCLUSIVO</div><div class="bonus-title">Calendario Anual 2027</div></div><a class="buy" href="https://pay.hotmart.com/V108540669E" target="_blank" rel="noopener noreferrer">Comprar en Hotmart</a></div>
+        <article class="product" data-type="plantillas">
+          <a class="product-image" href="https://pay.hotmart.com/V108540669E" target="_blank" rel="noopener noreferrer" aria-label="Comprar Agenda y Planificador 2027 en Hotmart"><img src="agenda-planificador-2027.jpg" alt="Portada de Agenda y Planificador 2027" width="1200" height="1200" loading="lazy" decoding="async"></a>
+          <div class="product-info"><h2 class="sr-only">Agenda y Planificador 2027</h2><div class="price-row"><span class="price">$5.000</span></div><div class="bonus-box"><div class="bonus-label">🎁 BONUS EXCLUSIVO</div><div class="bonus-title">Calendario Anual 2027</div></div><a class="buy" href="https://pay.hotmart.com/V108540669E" target="_blank" rel="noopener noreferrer">Comprar en Hotmart</a></div>
         </article>
-        <article class="product">
-          <a class="product-image" href="https://pay.hotmart.com/D108540736V?checkoutMode=2" target="_blank" rel="noopener noreferrer" aria-label="Comprar Meriendas y Snacks Salados en Hotmart"><img src="Meriendas y snacks salados caseros (1).png" alt="Portada de Meriendas y Snacks Salados" loading="lazy"></a>
-          <div class="product-info"><h2>Meriendas y Snacks Salados</h2><span class="category">Cocina y Recetas</span><div class="price-row"><span class="price">$9.000</span></div><div class="bonus-box"><div class="bonus-label">🎁 BONUS EXCLUSIVO</div><div class="bonus-title">Recetas Livianas</div></div><a class="buy" href="https://pay.hotmart.com/D108540736V?checkoutMode=2" target="_blank" rel="noopener noreferrer">Comprar en Hotmart</a></div>
+        <article class="product" data-type="ebooks">
+          <a class="product-image" href="https://pay.hotmart.com/D108540736V?checkoutMode=2" target="_blank" rel="noopener noreferrer" aria-label="Comprar Meriendas y Snacks Salados en Hotmart"><img src="meriendas-snacks-salados.jpg" alt="Portada de Meriendas y Snacks Salados" width="1200" height="1200" loading="lazy" decoding="async"></a>
+          <div class="product-info"><h2 class="sr-only">Meriendas y Snacks Salados</h2><div class="price-row"><span class="price">$9.000</span></div><div class="bonus-box"><div class="bonus-label">🎁 BONUS EXCLUSIVO</div><div class="bonus-title">Recetas Livianas</div></div><a class="buy" href="https://pay.hotmart.com/D108540736V?checkoutMode=2" target="_blank" rel="noopener noreferrer">Comprar en Hotmart</a></div>
         </article>
-        <article class="product">
-          <a class="product-image" href="https://pay.hotmart.com/M108541412N?checkoutMode=2" target="_blank" rel="noopener noreferrer" aria-label="Comprar Planner de Presupuesto Mensual en Hotmart"><img src="Planner mensual de presupuesto y metas.png" alt="Portada de Planner de Presupuesto Mensual" loading="lazy"></a>
-          <div class="product-info"><h2>Planner de Presupuesto Mensual</h2><span class="category">Finanzas y Presupuesto</span><div class="price-row"><span class="price">$5.000</span></div><div class="bonus-box"><div class="bonus-label">🎁 BONUS EXCLUSIVO</div><div class="bonus-title">Planificador de Menú y Compras</div></div><a class="buy" href="https://pay.hotmart.com/M108541412N?checkoutMode=2" target="_blank" rel="noopener noreferrer">Comprar en Hotmart</a></div>
+        <article class="product" data-type="plantillas">
+          <a class="product-image" href="https://pay.hotmart.com/M108541412N?checkoutMode=2" target="_blank" rel="noopener noreferrer" aria-label="Comprar Planner de Presupuesto Mensual en Hotmart"><img src="planner-presupuesto-mensual.jpg" alt="Portada de Planner de Presupuesto Mensual" width="1200" height="1200" loading="lazy" decoding="async"></a>
+          <div class="product-info"><h2 class="sr-only">Planner de Presupuesto Mensual</h2><div class="price-row"><span class="price">$5.000</span></div><div class="bonus-box"><div class="bonus-label">🎁 BONUS EXCLUSIVO</div><div class="bonus-title">Planificador de Menú y Compras</div></div><a class="buy" href="https://pay.hotmart.com/M108541412N?checkoutMode=2" target="_blank" rel="noopener noreferrer">Comprar en Hotmart</a></div>
         </article>
+      </div>
+      <div class="soon" id="proximamente" hidden>
+        <h2>Libros para colorear</h2>
+        <p>Estamos preparando los primeros títulos. Muy pronto los vas a encontrar acá.</p>
+        <a class="contact-link" href="mailto:masquepancomido@gmail.com?subject=Avisame%20cuando%20salgan%20los%20libros%20para%20colorear">Avisame cuando estén listos</a>
       </div>
     </div></section>
     <div class="wrap trust" aria-label="Características de nuestros productos"><div><strong>Descarga digital</strong>Recibí tu PDF</div><div><strong>Prácticos y simples</strong>Para tu día a día</div><div><strong>En español</strong>Diseñados con dedicación</div></div>
     <section class="simple-section"><div class="wrap"><div class="section-title"><h2>Pequeños recursos, grandes ideas</h2><p>Herramientas digitales pensadas para acompañarte.</p></div><div class="benefits"><div class="benefit"><h3>Organizá</h3><p>Planificá tus tareas, metas y rutinas de forma simple.</p></div><div class="benefit"><h3>Disfrutá</h3><p>Encontrá recetas prácticas para compartir y hacer en casa.</p></div><div class="benefit"><h3>Usalos a tu manera</h3><p>Descargá tus recursos y consultalos cuando quieras.</p></div></div></div></section>
     <section class="faq" id="preguntas"><div class="wrap"><div class="section-title"><h2>Preguntas frecuentes</h2><p>Todo lo que necesitás saber antes de elegir.</p></div><div class="faq-list">
-      <details><summary>¿Qué tipo de productos ofrece TODO PDF?</summary><p>Recursos digitales en PDF, como recetarios, agendas y planners.</p></details>
+      <details><summary>¿Qué tipo de productos ofrece TODO PDF?</summary><p>Ebooks y plantillas en PDF, como recetarios, agendas y planners. Próximamente, libros para colorear.</p></details>
       <details><summary>¿Son productos físicos?</summary><p>No. Son productos digitales; no se envía ningún producto físico.</p></details>
       <details><summary>¿Cómo compro un producto?</summary><p>Elegí el producto y tocá “Comprar en Hotmart” para ir directamente al checkout del producto seleccionado.</p></details>
-      <details><summary>¿Cómo recibo mi PDF?</summary><p>La entrega y las instrucciones de acceso se gestionan a través de Hotmart después de la compra.</p></details>
+      <details><summary>¿Cómo recibo mi PDF?</summary><p>Después de la compra, Hotmart te envía el acceso al correo que usaste para pagar. Si no lo ves, revisá las carpetas de spam o promociones.</p></details>
+      <details><summary>¿Qué hago si no me llega el PDF?</summary><p>Escribinos a masquepancomido@gmail.com con el correo de tu compra y te ayudamos.</p></details>
+      <details><summary>¿En qué dispositivos puedo usarlos?</summary><p>Son archivos PDF: podés leerlos en el celular, la tablet o la computadora, y también imprimirlos.</p></details>
+      <details><summary>¿Puedo pedir el reembolso?</summary><p>Sí, dentro del plazo de garantía que figura en el checkout de cada producto. Si necesitás ayuda con el trámite, escribinos.</p></details>
+      <details><summary>¿Puedo compartir o revender los PDF?</summary><p>No. Son para uso personal y no está permitido compartirlos ni revenderlos.</p></details>
     </div></div></section>
     <section class="contact" id="contacto"><div class="wrap"><h2>¿Tenés alguna consulta?</h2><p>Escribinos y te ayudaremos.</p><a class="contact-link" href="mailto:masquepancomido@gmail.com">Contactar por correo</a></div></section>
   </main>
-  <footer><div class="wrap"><div><strong>TODO PDF</strong><p>Recursos digitales para organizar, crear y disfrutar.</p></div><div class="footer-links"><a href="terminos.html">Términos y Condiciones</a><a href="privacidad.html">Política de Privacidad</a><a href="mailto:masquepancomido@gmail.com">Contacto</a></div></div></footer>
+  <footer><div class="wrap"><div><strong>TODO PDF</strong><p>Recursos digitales para organizar, crear y disfrutar.</p><p>Por Más que pan comido</p></div><div class="footer-links"><a href="terminos.html">Términos y Condiciones</a><a href="privacidad.html">Política de Privacidad</a><a href="mailto:masquepancomido@gmail.com">Contacto</a></div></div></footer>
+  <script>
+    (function () {
+      var buttons = document.querySelectorAll('.filter');
+      var cards = document.querySelectorAll('.product');
+      var grid = document.getElementById('lista-productos');
+      var soon = document.getElementById('proximamente');
+      var valid = ['todos', 'ebooks', 'plantillas', 'colorear'];
+
+      function show(f) {
+        if (valid.indexOf(f) === -1) f = 'todos';
+        var n = 0;
+        cards.forEach(function (c) {
+          var ok = f === 'todos' || c.getAttribute('data-type') === f;
+          c.hidden = !ok;
+          if (ok) n++;
+        });
+        grid.setAttribute('data-count', n);
+        grid.hidden = (f === 'colorear');
+        soon.hidden = (f !== 'colorear');
+        buttons.forEach(function (b) {
+          b.setAttribute('aria-pressed', b.getAttribute('data-filter') === f ? 'true' : 'false');
+        });
+      }
+
+      function fromHash() {
+        var h = location.hash.replace('#', '');
+        return h === 'productos' ? 'todos' : h;
+      }
+
+      buttons.forEach(function (b) {
+        b.addEventListener('click', function () {
+          var f = b.getAttribute('data-filter');
+          show(f);
+          history.replaceState(null, '', f === 'todos' ? '#productos' : '#' + f);
+        });
+      });
+
+      window.addEventListener('hashchange', function () { show(fromHash()); });
+
+      var first = fromHash();
+      show(first);
+      if (first !== 'todos' && valid.indexOf(first) > -1) {
+        document.getElementById('productos').scrollIntoView();
+      }
+    })();
+  </script>
 </body>
 </html>
